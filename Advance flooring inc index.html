@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Flooring Inc | Premium Flooring York, PA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-deep: #1a0f0a; 
+            --accent-wood: #d4a373; 
+            --accent-soft: #e7c8a0; 
+            --white: #ffffff;
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(212, 163, 115, 0.15);
+            --radius: 24px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'DM Sans', sans-serif; 
+            background-color: var(--bg-deep); 
+            color: var(--white); 
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- HERO SECTION (UNCHANGED) --- */
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            padding: 1.5rem 6%;
+            background: radial-gradient(circle at 15% 40%, #3d251a 0%, transparent 45%),
+                        radial-gradient(circle at 85% 70%, #2b1a11 0%, transparent 45%);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            margin-bottom: 5rem;
+        }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; color: inherit; }
+        .logo-icon { background: var(--accent-wood); color: var(--bg-deep); width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; }
+        .logo-text h2 { font-family: 'Playfair Display', serif; font-size: 1.2rem; line-height: 1.1; }
+        .logo-text p { font-size: 0.65rem; color: var(--accent-soft); letter-spacing: 1.5px; text-transform: uppercase; }
+
+        .nav-links { display: flex; gap: 2.5rem; font-size: 0.88rem; font-weight: 500; }
+        .nav-links a { color: rgba(255,255,255,0.7); text-decoration: none; transition: 0.3s; }
+        .nav-links a:hover { color: var(--accent-wood); }
+
+        .btn-estimate {
+            background: var(--accent-wood);
+            color: var(--bg-deep);
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(212, 163, 115, 0.1);
+            border: 1px solid rgba(212, 163, 115, 0.2);
+            padding: 6px 18px;
+            border-radius: 30px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--accent-wood);
+            margin-bottom: 1.8rem;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4.2rem);
+            line-height: 1.05;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+        }
+        .hero-title em { color: var(--accent-wood); font-style: italic; }
+
+        .hero-desc {
+            color: rgba(231, 200, 160, 0.8);
+            font-size: 1.05rem;
+            max-width: 520px;
+            margin-bottom: 2.5rem;
+        }
+
+        .feature-item { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; font-size: 0.95rem; color: var(--accent-soft); }
+        .check { 
+            background: var(--accent-wood); color: var(--bg-deep); width: 22px; height: 22px; 
+            border-radius: 50%; display: flex; align-items: center; justify-content: center; 
+            font-size: 0.7rem; font-weight: bold;
+        }
+
+        .cta-group { display: flex; flex-wrap: wrap; gap: 1.2rem; }
+        .btn-call { background: var(--accent-wood); color: var(--bg-deep); padding: 15px 32px; border-radius: 40px; font-weight: 700; text-decoration: none; }
+        .btn-outline { border: 1.5px solid rgba(212, 163, 115, 0.3); color: var(--accent-soft); padding: 15px 32px; border-radius: 40px; text-decoration: none; }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(25px);
+            border: 1px solid var(--glass-border);
+            padding: 3rem;
+            border-radius: var(--radius);
+        }
+
+        .service-chips {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 2.5rem;
+        }
+        .chip {
+            background: rgba(212, 163, 115, 0.05);
+            border: 1px solid rgba(212, 163, 115, 0.1);
+            padding: 12px 15px;
+            border-radius: 14px;
+            font-size: 0.85rem;
+            display: flex; align-items: center; gap: 10px;
+        }
+
+        .card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(212, 163, 115, 0.15);
+        }
+
+        /* --- TRUST BAR (UNCHANGED) --- */
+        .trust-bar {
+            background: #25160f;
+            padding: 1.5rem 6%;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem 4rem;
+            font-size: 0.85rem;
+            color: var(--accent-soft);
+            border-top: 1px solid rgba(212, 163, 115, 0.1);
+        }
+
+        /* --- ABOUT SECTION (CLEANED UP - NO PATTI) --- */
+        .about-section-final {
+            padding: 100px 8%;
+            background-color: #fdfaf7; 
+            color: #1a0f0a;
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-tag {
+            display: inline-block;
+            background: #e9ecef;
+            color: #5c3d2e;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .about-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            line-height: 1.1;
+            font-weight: 800;
+            margin-bottom: 25px;
+        }
+
+        .about-text {
+            color: #4a4a4a;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .about-checklist {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 35px;
+        }
+
+        .check-item { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 0.9rem; }
+        .check-item span {
+            background: #2d6a4f;
+            color: white;
+            width: 20px; height: 20px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.7rem;
+        }
+
+        .btn-primary-about {
+            background: #2d6a4f;
+            color: #fff;
+            padding: 16px 35px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-block;
+        }
+
+        .image-box {
+            border-radius: 30px;
+            overflow: hidden;
+            height: 450px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+        .image-box img { width: 100%; height: 100%; object-fit: cover; }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: -40px;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .stat-card {
+            background: #fff;
+            padding: 20px 10px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+        }
+
+        .stat-card strong { display: block; font-size: 1.4rem; font-family: 'Playfair Display', serif; }
+        .stat-card p { font-size: 0.7rem; color: #888; text-transform: uppercase; margin-top: 5px; }
+
+        @media (max-width: 1024px) {
+            .hero-grid, .about-container { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="hero-section">
+        <nav>
+            <a href="#" class="logo">
+    <div class="logo-icon">
+        <img src="https://advancedflooringinc.com/wp-content/uploads/2026/01/ChatGPT-Image-Jan-12-2026-01_22_51-PM.png" 
+             alt="Advanced Flooring Inc Logo" 
+             style="width: 100%; height: 100%; object-fit: contain; display: block;">
+    </div>
+    <div class="logo-text">
+        <h2>Advanced Flooring Inc</h2>
+        <p>York, PA · Master Craftsmanship</p>
+    </div>
+            </a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#reviews">Reviews</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <a href="tel:7178913253" class="btn-estimate">Get Free Quote</a>
+        </nav>
+
+        <div class="hero-grid">
+            <div class="hero-left">
+                <div class="eyebrow">📍 SERVING YORK, PA 17408 · LICENSED & INSURED</div>
+                <h1 class="hero-title">Timeless Floors, <em>Perfectly</em><br>Restored & Installed</h1>
+                <p class="hero-desc">At Advanced Flooring Inc., we provide comprehensive 
+<a href="https://maps.app.goo.gl/McBjg6ikAKjyvTTr5" target="_blank" style="color: inherit; text-decoration: none;">
+flooring services in York, PA
+</a>, transforming homes and commercial spaces with precision and care. Our flooring contractors install, repair, and renovate vinyl, wood, laminate, carpet, and tile, ensuring every floor is durable, stylish, and personalized to each client’s needs. 
+
+With a focus on exceptional craftsmanship, attention to detail, and seamless project management, we turn flooring challenges into smooth, reliable solutions. Committed to enhancing spaces while maintaining trust, transparency, and quality, we aim to make every flooring project a lasting investment for your property.</p>
+                
+                <div style="margin-bottom: 2.5rem;">
+                    <div class="feature-item"><span class="check">✓</span> 2291 Linden Rd, York, PA 17408</div>
+                    <div class="feature-item"><span class="check">✓</span> (717) 891-3253 · vas2883@gmail.com</div>
+                    <div class="feature-item"><span class="check">✓</span> Residential & Commercial Specialist</div>
+                </div>
+
+                <div class="cta-group">
+                    <a href="tel:7178913253" class="btn-call">📞 Call Us Now</a>
+                    <a href="#" class="btn-outline">View Our Gallery</a>
+                </div>
+            </div>
+
+            <div class="hero-right">
+                <div class="glass-card">
+                    <p class="card-label">PREMIUM SERVICES</p>
+                    <h3 class="card-title">Crafting Beauty Under Every Step</h3>
+                    <div class="service-chips">
+                        <div class="chip">🪵 Hardwood</div>
+                        <div class="chip">💎 Luxury Vinyl</div>
+                        <div class="chip">📐 Custom Tile</div>
+                        <div class="chip">✨ Sand & Finish</div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="mailto:vas2883@gmail.com" style="background:var(--accent-wood); color:var(--bg-deep); padding:12px 24px; border-radius:12px; text-decoration:none; font-weight:700;">Email Us</a>
+                        <div style="font-size: 0.8rem; text-align: right; color: var(--accent-soft);">
+                            Open Mon–Fri<br>
+                            <strong>8:00 AM – 6:00 PM</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="trust-bar">
+        <div class="trust-item">🛡️ Licensed & Insured</div>
+        <div class="trust-item">📋 Free Detailed Estimates</div>
+        <div class="trust-item">⭐ York's Preferred Choice</div>
+        <div class="trust-item">🔨 15+ Years Experience</div>
+    </div>
+
+   <section id="about" class="about-section-final">
+    <div class="about-container">
+        <div class="about-content">
+            <span class="about-tag">About Advanced Flooring Inc</span>
+            <h2 class="about-title">Trusted Flooring Experts in York, Pennsylvania</h2>
+            <p style="color:#666; margin-bottom:25px; font-size:1.1rem;"></p>
+            
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:15px; margin-bottom:35px;">
+                <div style="display:flex; align-items:center; gap:10px; font-weight:600;"><span style="color:var(--accent-wood);">✓</span> Reliable Scheduling</div>
+                <div style="display:flex; align-items:center; gap:10px; font-weight:600;"><span style="color:var(--accent-wood);">✓</span> Commercial Scale</div>
+                <div style="display:flex; align-items:center; gap:10px; font-weight:600;"><span style="color:var(--accent-wood);">✓</span> Master Installers</div>
+                <div style="display:flex; align-items:center; gap:10px; font-weight:600;"><span style="color:var(--accent-wood);">✓</span> Quality Guaranteed</div>
+            </div>
+            
+            <a href="tel:7178913253" class="btn-primary-brown">Get a Free Estimate Today</a>
+        </div>
+
+        <div class="about-visual">
+            <div class="image-box">
+                <img src="https://underlay4u.co.uk/wp-content/uploads/2018/12/How-to-choose-laminate-flooring-colour.jpg" alt="Flooring York" style="width:100%; border-radius:30px; box-shadow: 0 15px 40px rgba(0,0,0,0.1);">
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Styling for the updated brown button */
+    .btn-primary-brown {
+        background: #3d251a; /* Rich Chocolate Brown */
+        color: #fff;
+        padding: 18px 40px;
+        border-radius: 40px;
+        text-decoration: none;
+        font-weight: 700;
+        display: inline-block;
+        transition: all 0.3s ease;
+        border: none;
+        box-shadow: 0 10px 20px rgba(61, 37, 26, 0.15);
+    }
+
+    .btn-primary-brown:hover {
+        background: #1a0f0a; /* Darker Brown on hover */
+        transform: translateY(-3px);
+        box-shadow: 0 15px 25px rgba(61, 37, 26, 0.25);
+    }
+</style>
+
+</body>
+</html>
+<section id="services" class="services-section">
+    <div class="services-header">
+        <span class="service-tag">WHAT WE DO</span>
+        <h2 class="service-main-title">Our Premium Flooring Services</h2>
+        <p class="service-subtitle">
+            From basic repairs to full residential installations — Advanced Flooring Inc has the skills and equipment to keep your property looking great all year.
+        </p>
+    </div>
+
+    <div class="services-grid">
+        <div class="service-card">
+            <div class="s-icon">🪵</div>
+            <span class="s-label">MOST POPULAR</span>
+            <h3>Hardwood Installation</h3>
+            <p>Premium solid and engineered hardwood floors installed with precision for a timeless, elegant look.</p>
+            <a href="tel:7178913253" class="s-link">Get Estimate →</a>
+        </div>
+
+        <div class="service-card">
+            <div class="s-icon">✨</div>
+            <span class="s-label">PROFESSIONAL</span>
+            <h3>Sand & Refinish</h3>
+            <p>Dustless sanding and high-quality finishing to restore your old hardwood floors to their original glory.</p>
+            <a href="tel:7178913253" class="s-link">Get Estimate →</a>
+        </div>
+
+        <div class="service-card">
+            <div class="s-icon">💎</div>
+            <span class="s-label">MODERN</span>
+            <h3>Luxury Vinyl (LVP)</h3>
+            <p>Waterproof and durable luxury vinyl plank installation, perfect for busy households and basements.</p>
+            <a href="tel:7178913253" class="s-link">Get Estimate →</a>
+        </div>
+
+        <div class="service-card">
+            <div class="s-icon">🏥</div>
+            <span class="s-label">COMMERCIAL</span>
+            <h3>Commercial Flooring</h3>
+            <p>Durable flooring solutions for offices, retail stores, and commercial spaces with professional finish.</p>
+            <a href="tel:7178913253" class="s-link">Get Estimate →</a>
+        </div>
+
+        <div class="service-card">
+            <div class="s-icon">🛠️</div>
+            <span class="s-label">REPAIR</span>
+            <h3>Floor Repairs</h3>
+            <p>Expert patching, board replacement, and squeak repair to keep your existing floors safe and beautiful.</p>
+            <a href="tel:7178913253" class="s-link">Get Estimate →</a>
+        </div>
+
+        <div class="service-card">
+            <div class="s-icon">🎨</div>
+            <span class="s-label">CUSTOM</span>
+            <h3>Color Matching</h3>
+            <p>Specialized stain matching services to ensure your new floors blend perfectly with existing woodwork.</p>
+            <a href="tel:7178913253" class="s-link">Get Estimate →</a>
+        </div>
+    </div>
+</section>
+
+<style>
+    .services-section {
+        padding: 100px 8%;
+        background-color: #fdfaf7; /* Matches the About Section background */
+        font-family: 'DM Sans', sans-serif;
+    }
+
+    .services-header {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 60px;
+    }
+
+    .service-tag {
+        font-size: 0.7rem;
+        font-weight: 700;
+        color: #2d6a4f;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .service-main-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.5rem;
+        color: #1a0f0a;
+        margin-bottom: 20px;
+    }
+
+    .service-subtitle {
+        color: #666;
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .service-card {
+        background: #fff;
+        padding: 40px 30px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        transition: transform 0.3s ease;
+        border: 1px solid #f0f0f0;
+    }
+
+    .service-card:hover {
+        transform: translateY(-10px);
+    }
+
+    .s-icon {
+        background: #f1f3f1;
+        width: 50px;
+        height: 50px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+
+    .s-label {
+        font-size: 0.6rem;
+        font-weight: 800;
+        color: #888;
+        letter-spacing: 1px;
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .service-card h3 {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.4rem;
+        color: #1a0f0a;
+        margin-bottom: 15px;
+    }
+
+    .service-card p {
+        color: #666;
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin-bottom: 25px;
+    }
+
+    .s-link {
+        color: #2d6a4f;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.85rem;
+        transition: 0.2s;
+    }
+
+    .s-link:hover {
+        text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+        .services-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+        .services-grid { grid-template-columns: 1fr; }
+    }
+</style>
+<section class="why-choose-section">
+    <div class="why-container">
+        
+        <div class="why-left">
+            <span class="why-tag">WHY CHOOSE US</span>
+            <h2 class="why-title">York's <em>Go-To</em> Flooring & Restoration Team</h2>
+            <p class="why-desc">
+                We're not a big faceless company. We're your neighbors — and we care about your floors like they're our own.
+            </p>
+            <div class="why-btns">
+                <a href="tel:7178913253" class="btn-call-gold">📞 (717) 891-3253</a>
+                <a href="mailto:vas2883@gmail.com" class="btn-email-outline">Send Email</a>
+            </div>
+        </div>
+
+        <div class="why-grid">
+            <div class="why-card">
+                <div class="why-icon">🎯</div>
+                <h4>Attention to Detail</h4>
+                <p>We don't cut corners — every plank is leveled, and every edge is sanded perfect before we finish.</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">💰</div>
+                <h4>Fair, Honest Pricing</h4>
+                <p>Clear estimates upfront with no hidden fees. You know exactly what you're paying for.</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">⏰</div>
+                <h4>Always On Time</h4>
+                <p>We respect your schedule. When we say we'll be there, we mean it.</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">📅</div>
+                <h4>Year-Round Service</h4>
+                <p>From summer installs to winter repairs, we're here for every season of your flooring needs.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<style>
+    .why-choose-section {
+        padding: 100px 8%;
+        background-color: #1a0f0a; /* Same Deep Brown as your Hero section */
+        color: #ffffff;
+        font-family: 'DM Sans', sans-serif;
+    }
+
+    .why-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 80px;
+        align-items: center;
+    }
+
+    .why-tag {
+        font-size: 0.7rem;
+        font-weight: 700;
+        background: rgba(212, 163, 115, 0.15); /* Light Wood Tint */
+        color: #d4a373;
+        padding: 6px 18px;
+        border-radius: 30px;
+        letter-spacing: 1px;
+        border: 1px solid rgba(212, 163, 115, 0.2);
+    }
+
+    .why-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 3rem;
+        line-height: 1.1;
+        margin: 25px 0;
+    }
+
+    .why-title em {
+        color: #d4a373; /* Wood Accent */
+        font-style: italic;
+    }
+
+    .why-desc {
+        font-size: 1.1rem;
+        color: rgba(231, 200, 160, 0.8); /* Soft Beige */
+        margin-bottom: 40px;
+        max-width: 450px;
+    }
+
+    .why-btns {
+        display: flex;
+        gap: 15px;
+    }
+
+    .btn-call-gold {
+        background: #d4a373;
+        color: #1a0f0a;
+        padding: 15px 28px;
+        border-radius: 40px;
+        text-decoration: none;
+        font-weight: 700;
+        transition: 0.3s;
+    }
+
+    .btn-email-outline {
+        border: 1px solid rgba(212, 163, 115, 0.4);
+        color: #e7c8a0;
+        padding: 15px 28px;
+        border-radius: 40px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: 0.3s;
+    }
+
+    /* Right Side Grid */
+    .why-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .why-card {
+        background: rgba(255, 255, 255, 0.03); /* Subtle Glass Effect */
+        padding: 30px;
+        border-radius: 24px;
+        border: 1px solid rgba(212, 163, 115, 0.15);
+        transition: 0.3s;
+    }
+
+    .why-card:hover {
+        background: rgba(212, 163, 115, 0.05);
+        transform: translateY(-5px);
+    }
+
+    .why-icon {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+
+    .why-card h4 {
+        font-size: 1.25rem;
+        margin-bottom: 12px;
+        font-family: 'Playfair Display', serif;
+        color: #ffffff;
+    }
+
+    .why-card p {
+        font-size: 0.88rem;
+        color: rgba(231, 200, 160, 0.7);
+        line-height: 1.6;
+    }
+
+    @media (max-width: 1024px) {
+        .why-container { grid-template-columns: 1fr; gap: 50px; }
+        .why-left { text-align: center; }
+        .why-left .why-desc { margin: 25px auto 40px; }
+        .why-btns { justify-content: center; }
+    }
+
+    @media (max-width: 600px) {
+        .why-grid { grid-template-columns: 1fr; }
+    }
+</style>
+
+    <section id="reviews" class="reviews-section">
+    <div class="reviews-header">
+        <span class="review-tag">Client Testimonials</span>
+        <h2 class="review-main-title">What Our Clients Say</h2>
+        <p class="review-subtitle">Real feedback from our happy customers in York, PA</p>
+    </div>
+
+    <div class="reviews-grid">
+        <div class="review-card">
+            <div class="quote-icon">“</div>
+            <p class="review-text">
+                The team completely transformed my living room. They installed new hardwood floors, cleaned up everything, and even gave me maintenance tips. Highly recommend!
+            </p>
+            <div class="stars">★★★★★</div>
+            <div class="client-info">
+                <strong>Mike T.</strong>
+                <span>Hardwood Installation · York, PA</span>
+            </div>
+        </div>
+
+        <div class="review-card">
+            <div class="quote-icon">“</div>
+            <p class="review-text">
+                Called them for refinishing my old oak floors. They came out the next day, did a thorough job, and the pricing was very fair. Will definitely be using them again.
+            </p>
+            <div class="stars">★★★★★</div>
+            <div class="client-info">
+                <strong>Sandra K.</strong>
+                <span>Floor Refinishing · York, PA</span>
+            </div>
+        </div>
+
+        <div class="review-card">
+            <div class="quote-icon">“</div>
+            <p class="review-text">
+                We hired them for our business office LVP flooring and they knocked it out of the park. Professional crew and great communication throughout.
+            </p>
+            <div class="stars">★★★★★</div>
+            <div class="client-info">
+                <strong>Robert M.</strong>
+                <span>Commercial Flooring · York, PA</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .reviews-section {
+        padding: 100px 8%;
+        background-color: #fdfaf7; /* Off-white background from Jasen's style */
+        font-family: 'DM Sans', sans-serif;
+    }
+
+    .reviews-header {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 60px;
+    }
+
+    .review-tag {
+        font-size: 0.7rem;
+        font-weight: 700;
+        color: #2d6a4f;
+        background: #e9f0ed;
+        padding: 4px 12px;
+        border-radius: 20px;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+    }
+
+    .review-main-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.8rem;
+        color: #1a0f0a;
+        margin: 20px 0;
+    }
+
+    .review-subtitle {
+        color: #666;
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    .reviews-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .review-card {
+        background: #ffffff;
+        padding: 40px;
+        border-radius: 24px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+        display: flex;
+        flex-direction: column;
+    }
+
+    .quote-icon {
+        color: #2d6a4f;
+        font-size: 3rem;
+        font-family: serif;
+        line-height: 1;
+        margin-bottom: 10px;
+        opacity: 0.3;
+    }
+
+    .review-text {
+        color: #4a4a4a;
+        font-size: 0.95rem;
+        line-height: 1.7;
+        margin-bottom: 25px;
+        flex-grow: 1;
+    }
+
+    .stars {
+        color: #f2b01e; /* Golden Yellow Stars */
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+    }
+
+    .client-info strong {
+        display: block;
+        color: #1a0f0a;
+        font-size: 1rem;
+    }
+
+    .client-info span {
+        color: #888;
+        font-size: 0.8rem;
+    }
+
+    @media (max-width: 1024px) {
+        .reviews-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+        .reviews-grid { grid-template-columns: 1fr; }
+        .review-main-title { font-size: 2.2rem; }
+    }
+</style>
+</style>
+<section class="tips-section">
+    <div class="tips-card">
+        <span class="tips-tag">FLOORING EXPERT ADVICE</span>
+        <h2 class="tips-title">5 Ways to Keep Your York, PA Floors Beautiful All Year</h2>
+        <p class="tips-subtitle">Advice from Advanced Flooring Inc — Serving York, PA & surrounding areas</p>
+
+        <div class="tips-content">
+            <p class="intro-text">
+                Living in Pennsylvania means dealing with humid summers and snowy winters. These temperature changes can affect your hardwood. Here’s what we tell every one of our customers to help their floors stay strong through every season.
+            </p>
+
+            <div class="tip-item">
+                <h4>1. Maintain Consistent Humidity</h4>
+                <p>Wood expands and contracts with moisture. During York winters, using a humidifier can prevent gaps from forming between your hardwood planks when the air gets dry.</p>
+            </div>
+
+            <div class="tip-item">
+                <h4>2. Use the Right Cleaning Products</h4>
+                <p>Avoid harsh chemicals or excessive water. A damp (not dripping) microfiber mop with a pH-neutral cleaner is the best way to preserve the finish of your floors.</p>
+            </div>
+
+            <div class="tip-item">
+                <h4>3. Use Rugs in High-Traffic Areas</h4>
+                <p>Place mats at every entrance to catch salt, grit, and moisture before they reach your floors. This simple step prevents micro-scratches on your hardwood finish.</p>
+            </div>
+
+            <div class="tip-item">
+                <h4>4. Trim Your Pet's Nails</h4>
+                <p>Large pets can scratch even the toughest finishes over time. Keeping nails trimmed helps prevent deep gouges that might require a full sand and refinish later.</p>
+            </div>
+
+            <div class="tip-item">
+                <h4>5. Call a Professional for Deep Scratches</h4>
+                <p>Minor scuffs are normal, but deep scratches that reach the bare wood need professional sealing to prevent water damage. This is not a DIY project — use a trained crew.</p>
+            </div>
+
+            <p class="tips-footer">
+                Ready for a better-looking floor? Call us at <strong>(717) 891-3253</strong> or email <strong>vas2883@gmail.com</strong> for a free, no-pressure estimate.
+            </p>
+        </div>
+    </div>
+</section>
+
+<style>
+    .tips-section {
+        padding: 80px 8%;
+        background-color: #fdfaf7; /* Matches your light background theme */
+        display: flex;
+        justify-content: center;
+        font-family: 'DM Sans', sans-serif;
+    }
+
+    .tips-card {
+        background: #ffffff;
+        max-width: 850px;
+        padding: 60px;
+        border-radius: 24px;
+        box-shadow: 0 4px 30px rgba(0,0,0,0.03);
+        border: 1px solid #f0f0f0;
+    }
+
+    .tips-tag {
+        font-size: 0.65rem;
+        font-weight: 700;
+        color: #888;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        display: block;
+        margin-bottom: 15px;
+    }
+
+    .tips-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.2rem;
+        color: #1a0f0a;
+        line-height: 1.2;
+        margin-bottom: 10px;
+    }
+
+    .tips-subtitle {
+        font-size: 0.9rem;
+        color: #2d6a4f; /* Green accent color from your theme */
+        font-weight: 500;
+        margin-bottom: 40px;
+    }
+
+    .intro-text {
+        color: #4a4a4a;
+        font-size: 1rem;
+        line-height: 1.7;
+        margin-bottom: 35px;
+    }
+
+    .tip-item {
+        margin-bottom: 25px;
+    }
+
+    .tip-item h4 {
+        font-size: 1.1rem;
+        color: #1a0f0a;
+        margin-bottom: 8px;
+        font-weight: 700;
+    }
+
+    .tip-item p {
+        color: #555;
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    .tips-footer {
+        margin-top: 40px;
+        padding-top: 30px;
+        border-top: 1px solid #eee;
+        font-size: 1rem;
+        color: #4a4a4a;
+    }
+
+    .tips-footer strong {
+        color: #2d6a4f;
+    }
+
+    @media (max-width: 768px) {
+        .tips-card { padding: 30px; }
+        .tips-title { font-size: 1.8rem; }
+    }
+</style>
+<footer id="contact" class="footer-section">
+    <div class="footer-container">
+        
+        <div class="footer-info">
+            <h2 class="footer-title">Get Your Free Flooring Estimate</h2>
+            <p class="footer-subtitle">
+                Tell us about your property and we'll give you a straight-forward quote. No pressure, no obligation.
+            </p>
+
+            <div class="contact-details">
+                <div class="contact-item">
+                    <span>PHONE</span>
+                    <a href="tel:7178913253">(717) 891-3253</a>
+                </div>
+                <div class="contact-item">
+                    <span>EMAIL</span>
+                    <a href="mailto:vas2883@gmail.com">vas2883@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <span>ADDRESS</span>
+                    <p>2291 Linden Rd, York, PA 17408, USA</p>
+                </div>
+                <div class="contact-item">
+                    <span>BUSINESS HOURS</span>
+                    <p>Mon – Fri: 8:00 am – 6:00 pm</p>
+                    <p>Sat – Sun: Closed</p>
+                </div>
+            </div>
+
+            <div class="footer-btns">
+                <a href="tel:7178913253" class="btn-call-now">📞 Call Now</a>
+                <a href="mailto:vas2883@gmail.com" class="btn-email-us">✉️ Email Us</a>
+            </div>
+        </div>
+
+        <div class="footer-map">
+            <div class="map-wrapper">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d195903.38766215887!2d-76.80701305!3d39.896846499999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6c090fe8e14f7ed1%3A0x9e846ac558eab9e0!2sAdvanced%20Flooring!5e0!3m2!1sen!2s!4v1773681250676!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 Advanced Flooring Inc. All rights reserved.</p>
+        <p>Serving York, PA & Surrounding Areas</p>
+        <p>(717) 891-3253</p>
+    </div>
+</footer>
+
+<style>
+.footer-section {
+    padding: 100px 8% 40px;
+    background-color: #1a0f0a;
+    color: #ffffff;
+    font-family: 'DM Sans', sans-serif;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: flex-start;
+}
+
+.footer-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.footer-subtitle {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.contact-details {
+    margin-bottom: 40px;
+}
+
+.contact-item {
+    margin-bottom: 20px;
+}
+
+.contact-item span {
+    display: block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: #d4a373;
+    letter-spacing: 1.5px;
+    margin-bottom: 5px;
+}
+
+.contact-item a, 
+.contact-item p {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.footer-btns {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-call-now {
+    background: #d4a373;
+    color: #1a0f0a;
+    padding: 14px 28px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.btn-email-us {
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #ffffff;
+    padding: 14px 28px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-email-us:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+.map-wrapper {
+    border-radius: 24px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.footer-bottom {
+    margin-top: 80px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.5);
+}
+
+@media (max-width: 992px) {
+    .footer-container { 
+        grid-template-columns: 1fr; 
+        gap: 50px; 
+    }
+    .footer-bottom { 
+        flex-direction: column; 
+        gap: 15px; 
+        text-align: center; 
+    }
+}
+</style>
